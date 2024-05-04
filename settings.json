@@ -1,0 +1,28 @@
+{
+    "Cases": {
+        "asicalug": {
+            "WarnAmount": 1,
+            "Warns": {
+                "1": "test"
+            },
+            "WarnedBy": {
+                "1": "asicalug"
+            }
+        },
+        "tweodore_": {
+            "WarnAmount": 2,
+            "Warns": {
+                "1": "car",
+                "2": "a"
+            },
+            "WarnedBy": {
+                "1": "asicalug",
+                "2": "tweodore_"
+            }
+        },
+        "Latest": {
+            "id": 1080643375960707092,
+            "avatarUrl": "https://cdn.discordapp.com/avatars/1080643375960707092/957329b3e5f819db7598248a992bcca5.png?size=1024"
+        }
+    }
+}
