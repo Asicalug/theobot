@@ -7,6 +7,9 @@ import asyncio
 from bot import reloadcog
 
 warns = []
+mods = []
+users = []
+warnIds = []
 
 class Case(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
@@ -31,24 +34,49 @@ class Case(commands.Cog):
                     pass
                 else:
                     warns.append(self.bot.settings.get(f'Cases.{user.name}.Warns.{i}'))
+                    mods.append(self.bot.settings.get(f'Cases.{user.name}.WarnedBy.{i}'))
+                    users.append(user.mention)
+                    warnIds.append(f"#{i}")
         
 
         if user.id == 779442220104417280:
-            avatarUrl = "https://cdn.discordapp.com/attachments/1231780670146088970/1235661318569197590/image.png?ex=6637d1c7&is=66368047&hm=e96f59ee4df743e2cd9b60cc3d24142da8d52bf229c595a92d817b56f673d4be&"
+            avatarUrl = "https://cdn.discordapp.com/attachments/1231780683966582885/1236591328201015366/image.png?ex=663890eb&is=66373f6b&hm=538541765b9cd580515a7beccc6aab63798b12efc3e3e33b06196723261dfe7d&"
+            description = "As you can see on the thumbnail, omairr **clearly** stated that he likes men which ultimately mean that he's gay."
+            imageUrl = "https://cdn.discordapp.com/attachments/1231780683966582885/1236591328201015366/image.png?ex=663890eb&is=66373f6b&hm=538541765b9cd580515a7beccc6aab63798b12efc3e3e33b06196723261dfe7d&"
         else:
             avatarUrl = user.avatar.url
+            description = ""
+            imageUrl = None
 
+        joinedWarns = "\n".join(warns)
+        joinedMods = "\n".join(mods)
+        joinedUsers = "\n".join(users)
+        joinedIds = "\n".join(warnIds)
+
+        print(len(warns))
+        if len(warns) == 1 or 0:
+            s = ""
+        else:
+            s = "s"
         self.pages = [
             Page(
                 embeds=[
-                    discord.Embed(title="Current Warns", description=f"Test\n {warns}").set_thumbnail(url=avatarUrl),
+                    discord.Embed(title=f"{user.name}'s Current Warn{s}", description=f"{description}", color=discord.Color.yellow()).set_thumbnail(url=avatarUrl).set_image(url=imageUrl).add_field(name="User", value=joinedUsers).add_field(name="Moderator", value=joinedMods).add_field(name="Reason", value=joinedWarns).add_field(name=f"ID{s}", value=joinedIds),
                 ],
             ),
+            Page(
+                embeds=[
+                    discord.Embed(title=f"{user.name}'s Current Mute{s}", description=f"{description}", color=discord.Color.yellow()).set_thumbnail(url=avatarUrl).set_image(url=imageUrl)
+                ]
+            )
         ]
         paginator = pages.Paginator(pages=self.get_pages())
 
         await paginator.respond(ctx.interaction, ephemeral=True)
         warns.clear()
+        mods.clear()
+        users.clear()
+        warnIds.clear()
 
 
 def setup(bot: commands.Bot):

@@ -30,8 +30,8 @@ Punishment History 🔴
             """,
             color=discord.Color.orange()
         )
-        user = self.bot.get_user(self.bot.settings.get('Cases.Latest'))
-        await ctx.respond(user.avatar.url, embed=embed, ephemeral=True)
+
+        await ctx.respond(embed=embed, ephemeral=True)
 
 def setup(bot: commands.Bot):
     bot.add_cog(Todo(bot))
