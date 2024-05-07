@@ -10,7 +10,7 @@ class getWarnProof(discord.ui.View):
         super().__init__(timeout=None)
         self.bot = bot
     
-    @discord.ui.button(label="Close", style=discord.ButtonStyle.primary, custom_id="close_ticket", emoji="🔒")
+    @discord.ui.button(label="Get Proof", style=discord.ButtonStyle.primary, custom_id="close_ticket", emoji="🔍")
     async def close_ticket_callback(
         self,
         button, 

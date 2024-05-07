@@ -2,8 +2,6 @@ import discord
 from discord.ext import commands
 from discord.commands import Option
 import shutil
-import requests
-import uuid
 
 
 class Warn(commands.Cog):
