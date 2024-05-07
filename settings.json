@@ -1,43 +1,14 @@
 {
     "Cases": {
         "asicalug": {
-            "WarnAmount": 2,
+            "WarnAmount": 1,
             "Warns": {
-                "1": "test",
-                "2": "gay"
+                "1": "cheating on rl"
             },
             "WarnedBy": {
-                "1": "asicalug",
-                "2": "asicalug"
+                "1": "asicalug"
             }
         },
-        "tweodore_": {
-            "WarnAmount": 3,
-            "Warns": {
-                "1": "car",
-                "2": "a",
-                "3": "gib starnode"
-            },
-            "WarnedBy": {
-                "1": "asicalug",
-                "2": "tweodore_",
-                "3": "asicalug"
-            }
-        },
-        "Latest": {
-            "id": 1080643375960707092,
-            "avatarUrl": "https://cdn.discordapp.com/avatars/1080643375960707092/957329b3e5f819db7598248a992bcca5.png?size=1024"
-        },
-        "omairr": {
-            "": {
-                "WarnAmount": 1,
-                "Warns": {
-                    "1": "test"
-                },
-                "WarnedBy": {
-                    "1": "asicalug"
-                }
-            }
-        }
+        "Latest": "asicalug"
     }
 }

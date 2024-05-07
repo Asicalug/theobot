@@ -4,7 +4,7 @@ from discord.commands import Option
 from discord.ext.pages import Paginator, Page
 import asyncio
 
-from bot import reloadcog
+from views.case.buttons.getWarnProof import getWarnProof
 
 warns = []
 mods = []
@@ -27,6 +27,7 @@ class Case(commands.Cog):
         user: Option(discord.User, description="The user that you want to get the case info from") # type: ignore
     ): 
         wAmount = self.bot.settings.get(f"Cases.{user.name}.WarnAmount")
+        self.bot.settings.set(f"Cases.Latest", user.name)
 
         if self.bot.settings.get(f"Cases.{user.name}.Warns") != None:
             for i in range(wAmount+1):
@@ -72,7 +73,7 @@ class Case(commands.Cog):
                 ]
             )
         ]
-        paginator = pages.Paginator(pages=self.get_pages())
+        paginator = pages.Paginator(pages=self.get_pages(), custom_view=getWarnProof(bot=self.bot))
 
         await paginator.respond(ctx.interaction, ephemeral=True)
         warns.clear()
