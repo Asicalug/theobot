@@ -12,5 +12,5 @@ class Ping(commands.Cog):
         embed = discord.Embed(title="Pong!", description=f'My current latency is at {round(self.bot.latency * 1000, 2)}ms', color=discord.Color.blurple())
         output = await ctx.send(embed=embed)
 
-def setup(bot):
-	bot.add_cog(Ping(bot))
+def setup(bot: commands.Bot):
+    bot.add_cog(Ping(bot))
