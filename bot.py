@@ -37,6 +37,7 @@ def load_cogs():
         bot.load_extension('commands.admin.moderation.warnuser')
 
         #user
+        bot.load_extension('commands.users.job.jobCommand')
         bot.load_extension('commands.users.ping')
         print("Commands loaded")
 

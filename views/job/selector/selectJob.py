@@ -1,25 +1,39 @@
 import discord
-from discord.ext import commands
-
-class MyView(discord.ui.View):
-    @discord.ui.select( # the decorator that lets you specify the properties of the select menu
-        placeholder = "Choose a Flavor!", # the placeholder text that will be displayed if nothing is selected
-        min_values = 1, # the minimum number of values that must be selected by the users
-        max_values = 1, # the maximum number of values that can be selected by the users
-        options = [ # the list of options from which users can choose, a required field
+# Defines a custom Select containing colour options
+# that the user can choose. The callback function
+# of this class is called when the user changes their choice.
+class SelectJob(discord.ui.Select):
+    def __init__(self, bot):
+        # For example, you can use self.bot to retrieve a user or perform other functions in the callback.
+        # Alternatively you can use Interaction.client, so you don't need to pass the bot instance.
+        self.bot = bot
+        # Set the options that will be presented inside the dropdown:
+        options=[
             discord.SelectOption(
-                label="Vanilla",
-                description="Pick this if you like vanilla!"
+                label="Starbucks Employee",
+                description="Hires you as a starbucks employee"
             ),
             discord.SelectOption(
-                label="Chocolate",
-                description="Pick this if you like chocolate!"
+                label="McDonalds",
+                description="Hires you as a McDonalds employee"
             ),
             discord.SelectOption(
-                label="Strawberry",
-                description="Pick this if you like strawberry!"
+                label="KFC",
+                description="Hires you as a KFC employee"
             )
-        ]
-    )
-    async def select_callback(self, select, interaction): # the function called when the user is done selecting options
-        await interaction.response.send_message(f"Awesome! I like {select.values[0]} too!")
+        ],        
+
+        # The placeholder is what will be shown when no option is selected.
+        # The min and max values indicate we can only pick one of the three options.
+        # The options parameter, contents shown above, define the dropdown options.
+        super().__init__(
+            placeholder="Get a job...",
+            min_values=1,
+            max_values=1,
+            options=options,
+        )
+
+    async def callback(self, interaction: discord.Interaction):
+        selected_job = self.get_item(selected_job).values[0]
+        embed = discord.Embed(title="Success", description=f"You're now a {selected_job}\nUse `/job work` to work.")
+        await interaction.response.send_message(embed=embed, ephemeral=True)
