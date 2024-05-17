@@ -41,6 +41,9 @@ def load_cogs():
         bot.load_extension('commands.users.ping')
         print("Commands loaded")
 
+        #ai
+        bot.load_extension('ai.llama')
+
         #listeners
         print("Loading listeners")
         bot.load_extension('listeners.on_ready')
