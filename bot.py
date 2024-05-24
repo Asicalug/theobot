@@ -39,6 +39,9 @@ def load_cogs():
         #user
         bot.load_extension('commands.users.job.jobCommand')
         bot.load_extension('commands.users.ping')
+        #tickets
+        bot.load_extension("tickets.ticketCommands")
+
         print("Commands loaded")
 
         #ai

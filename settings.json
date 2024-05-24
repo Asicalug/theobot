@@ -9,11 +9,35 @@
                 "1": "asicalug"
             }
         },
-        "Latest": "asicalug"
+        "Latest": "idk.ellax",
+        "idk": {
+            "ellax": {
+                "WarnAmount": 1,
+                "Warns": {
+                    "1": "Test"
+                },
+                "WarnedBy": {
+                    "1": "lemonlime4869"
+                }
+            }
+        }
     },
     "Jobs": {
         "asicalug": {
             "Current": "starbucks"
+        },
+        "tweodore_": {
+            "Current": "starbucks"
+        },
+        "lemonlime4869": {
+            "Current": "starbucks"
         }
+    },
+    "Tickets": {
+        "Panel": 1231780685040324691,
+        "Tickets": 1231780646339350669,
+        "Closed": 1231780646339350669,
+        "Role": 1231780568606310420,
+        "Count": 9
     }
 }
