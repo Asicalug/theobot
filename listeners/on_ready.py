@@ -12,7 +12,7 @@ class Ready(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print(f"{self.bot.user} is ready")
-        await self.bot.change_presence(activity=discord.Streaming(name="MissingBuilder's Community", url='https://twitch.tv/missingbuilder', game="Discord"))
+        await self.bot.change_presence(activity=discord.Streaming(name="with no-delays.", url='https://twitch.tv/missingbuilder', game="Discord"))
 #        for filename in os.listdir("./views/buttons"):
 #            if filename.endswith(".py"):
 #                classes = [obj for name, obj in inspect.getmembers(importlib.import_module(f"views.buttons.{filename[:-3]}")) if inspect.isclass(obj) and issubclass(obj, discord.ui.View)]
