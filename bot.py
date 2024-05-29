@@ -35,6 +35,7 @@ def load_cogs():
         bot.load_extension('commands.admin.moderation.ban')
         bot.load_extension('commands.admin.moderation.case')
         bot.load_extension('commands.admin.moderation.warnuser')
+        bot.load_extension('commands.admin.staffStriking.manageStaff')
 
         #user
         bot.load_extension('commands.users.job.jobCommand')
@@ -46,7 +47,7 @@ def load_cogs():
 
         #ai
         bot.load_extension('ai.llama')
-
+        
         #listeners
         print("Loading listeners")
         bot.load_extension('listeners.on_ready')

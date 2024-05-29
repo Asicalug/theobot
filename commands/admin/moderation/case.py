@@ -14,10 +14,10 @@ warnIds = []
 class Case(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
+        print(f"{self.__class__.__name__} loaded")
 
     def get_pages(self):
         return self.pages
-        #print(f"{self.__class__.__name__} loaded")
 
     @commands.slash_command(name="case", description='Gets the case of the user')
     @commands.has_permissions(moderate_members=True)
