@@ -40,6 +40,7 @@ class Kick(commands.Cog):
         embed = discord.Embed(title="Kicked !", description=f"You've kicked {user.mention}.", color=discord.Color.green())
         if e:
             embed.add_field(name=f"Error sending message to {user.display_name}", value=f"`{e}`")
+        else: pass
         embed.add_field(name="Reason", value=reason)
         await ctx.response.send_message(embed=embed, ephemeral=True)
 
